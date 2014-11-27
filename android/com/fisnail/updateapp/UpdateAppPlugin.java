@@ -135,6 +135,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args,
 			CallbackContext callbackContext) throws JSONException {
 		if("update".equals(action)){
+			Log.v(TAG, "wait for update...");
 			update();
 			return true;
 		}
@@ -146,6 +147,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 
 			@Override
 			protected String doInBackground(Void... params) {
+				Log.v(TAG, "wait for get remote version.json");
 				return getRemoteServerVersion();
 			}
 
@@ -155,12 +157,19 @@ public class UpdateAppPlugin extends CordovaPlugin {
 				if(result!=""){
 					AutoUpdate autoUpdate = gson.fromJson(result, AutoUpdate.class);
 					newAPKName = autoUpdate.getApkName();
+					Log.v(TAG, "server newAPKName:"+newAPKName);
 					newVersionName = autoUpdate.getVerName();
+					Log.v(TAG, "server newVersionName:"+newVersionName);
 					newVersionCode = autoUpdate.getVerCode();
+					Log.v(TAG, "server newVersionCode:"+newVersionCode);
 					newAPKDownLoadPath = autoUpdate.getDownLoadPath();
+					Log.v(TAG, "server newAPKDownLoadPath:"+newAPKDownLoadPath);
 					newAPKUpdateLogInfo = autoUpdate.getLog();
+					Log.v(TAG, "server newAPKUpdateLogInfo:"+newAPKUpdateLogInfo);
 				}
+				Log.v(TAG, "wait for get native version");
 				getNativeVersion();
+				Log.v(TAG, "begin checkUpdate...");
 				checkUpdate();
 			}
 
@@ -178,6 +187,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 */
 	public void checkUpdate(){
 		if((newVersionCode>nativeVersionCode)){
+			
 			showUpdateAPKDialog();
 		}
 	}
@@ -244,6 +254,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 * 下载NEW_APK
 	 */
 	public void downLoadNewAPK(){
+		Log.v(TAG, "show download progressDialog...");
 		pBar.setCanceledOnTouchOutside(false);
 		pBar.show();
 		
@@ -308,6 +319,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 
 
 	protected void haveDownLoad() {
+		Log.v(TAG, "show download end dialog...");
 		context = cordova.getActivity();
 		handler.post(new Runnable() {
 			public void run() {
@@ -365,6 +377,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 * 显示是否下载APK对话框
 	 */
 	public void showUpdateAPKDialog(){
+		Log.v(TAG, "show update apk dialog...");
 		context = cordova.getActivity();
 		StringBuffer sb = new StringBuffer();
 		sb.append("当前版本："+nativeVersionName+"\n");
@@ -412,6 +425,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 * NEW_APK安装
 	 */
 	public void installNewAPK(){
+		Log.v(TAG, "install apk");
 		context = cordova.getActivity();
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setDataAndType(Uri.fromFile(new File(Environment
