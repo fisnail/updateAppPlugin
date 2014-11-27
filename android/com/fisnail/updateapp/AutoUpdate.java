@@ -1,35 +1,35 @@
 package com.fisnail.updateapp;
 
 /**
- * ×Ô¶¯¸üĞÂ
- * @author daichen
+ * è‡ªåŠ¨æ›´æ–°
+ * @author Fisnail(fisnail@163.com)
  * 2014-11-26
  *
  */
 public class AutoUpdate {
 	
 	/**
-	 * NEW_APK Ãû³Æ
+	 * NEW_APK åç§°
 	 */
     private String apkName;
     
     /**
-     * NEW_APK °æ±¾Ãû³Æ
+     * NEW_APK ç‰ˆæœ¬åç§°
      */
     private String verName;
     
     /**
-     * NEW_APK °æ±¾ºÅ
+     * NEW_APK ç‰ˆæœ¬å·
      */
     private Integer verCode;
     
     /**
-     * ±¾´Î¸üĞÂÓÅ»¯ÄÚÈİ¼ò½é
+     * æœ¬æ¬¡æ›´æ–°ä¼˜åŒ–å†…å®¹ç®€ä»‹
      */
     private String log;
     
     /**
-     * NEW_APK ÏÂÔØÂ·¾¶
+     * NEW_APK ä¸‹è½½è·¯å¾„
      */
     private String downLoadPath;
 
