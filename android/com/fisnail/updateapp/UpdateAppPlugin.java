@@ -186,6 +186,8 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 * 检测自动更新
 	 */
 	public void checkUpdate(){
+		Log.v(TAG, "newVersionCode:"+newVersionCode);
+		Log.v(TAG, "nativeVersionCode"+nativeVersionCode);
 		if((newVersionCode>nativeVersionCode)){
 			
 			showUpdateAPKDialog();
