@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.fisnail.updateAppPlugin"
+    version="1.0.0">
+
+    <name>Fisnail App Update Plugin</name>
+    
+    <description>This plugin allows you easily update App</description>
+    
+    <author>Fisnail - fisnail@163.com</author>
+    
+    <keywords>update, update app, app, apk, Android, Fisnail</keywords>
+	
+	<engines>
+	    <engine name="cordova" version=">=3.0.0" />
+	</engines>
+
+    <license>Apache License V2</license>
+
+    <js-module src="www/UpdateApp.js" name="updateApp" target="UpdateApp.js">
+        <clobbers target="window.updateApp" />
+    </js-module>
+    
+    <!-- android -->
+    <platform name="android">
+    
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="UpdateAppPlugin" >
+				<param name="android-package" value="com.fisnail.updateAppPlugin.UpdateAppPlugin"/>
+			</feature>
+	    </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+            <!-- 向SD卡中写入数据权限 -->
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <!-- 检查网络 -->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+	    
+	    <source-file src="android/com/fisnail/updateapp/UpdateAppPlugin.java" 
+	            target-dir="src/com/fisnail/updateapp"/>
+        <source-file src="android/com/fisnail/updateapp/AutoUpdate.java" 
+                target-dir="src/com/fisnail/updateapp"/>
+    </platform>
+</plugin>
