@@ -38,7 +38,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-
+/**
+ *  自动更新
+ * @author Fisnail(fisnail@163.com)
+ * 2014-11-26
+ *
+ */
 public class UpdateAppPlugin extends CordovaPlugin {
 	private static final String TAG ="UpdateApp";
 	private static Gson gson = new GsonBuilder().create();
@@ -239,7 +244,9 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 * 下载NEW_APK
 	 */
 	public void downLoadNewAPK(){
+		pBar.setCanceledOnTouchOutside(false);
 		pBar.show();
+		
 		new Thread() {
 			public void run() {
 				// 判断SD卡是否存在，并且是否具有读写权限
@@ -327,6 +334,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 										//finish();
 									}
 								}).create();
+				installDialog.setCanceledOnTouchOutside(false);
 				installDialog.show();
 			}
 		});
@@ -382,6 +390,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 								//finish();
 							}
 						}).create();
+		dialog.setCanceledOnTouchOutside(false);
 		dialog.show();
 	}
 	
