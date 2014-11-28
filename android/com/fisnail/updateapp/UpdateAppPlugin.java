@@ -64,6 +64,10 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 */
 	private String projectName = "exam";
 	/**
+	 * version.json文件路径
+	 */
+	private String versionJsonPath = "";
+	/**
 	 * NEW_APK名称
 	 */
 	private String newAPKName;
@@ -218,10 +222,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 	 */
 	public String getRemoteServerVersion(){
 		try {
-			/**
-			 * version.json文件路径
-			 */
-			String versionJsonPath = "http://"+server+":"+port+"/"+projectName+"/"+versionJsonName;
+			
 			/**
 			 * version.json文件内容
 			 */
