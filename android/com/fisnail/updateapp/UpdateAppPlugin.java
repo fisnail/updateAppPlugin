@@ -134,18 +134,18 @@ public class UpdateAppPlugin extends CordovaPlugin {
 			if ("update".equals(action)) {
 				JSONObject versionJsonPath = args.getJSONObject(0);
 				Log.v(TAG, "check js set version.json file path...");
-				String versionJsonFilePath = null;
-				try {
-					versionJsonFilePath = String.valueOf(versionJsonPath.get("versionJsonFilePath"));
-					if (null == versionJsonFilePath || "".equals(versionJsonFilePath.trim())) {
-						throw new JSONException("version file path not set!");
-					}
-				} catch (JSONException e) {
-					Log.e(TAG, e.getMessage());
-					throw new JSONException(e.getMessage());
-				}
+//				String versionJsonFilePath = null;
+//				try {
+//					versionJsonFilePath = String.valueOf(versionJsonPath.get("versionJsonFilePath"));
+//					if (null == versionJsonFilePath || "".equals(versionJsonFilePath.trim())) {
+//						throw new JSONException("version file path not set!");
+//					}
+//				} catch (JSONException e) {
+//					Log.e(TAG, e.getMessage());
+//					throw new JSONException(e.getMessage());
+//				}
 				Log.v(TAG,"Ready to check for update...");
-				update(versionJsonFilePath);
+				update(versionJsonPath+"");
 				return true;
 			}
 		} catch (JSONException e) {
@@ -164,16 +164,16 @@ public class UpdateAppPlugin extends CordovaPlugin {
 		 new AsyncTask<Void, Integer, String>() {
 			@Override
 			protected String doInBackground(Void... params) {
-				Log.v(TAG, "Ready to read the contents of the remote file(version.json)...");
-				Log.v(TAG, "Remote file address:"+versionJsonFilePath);
-				try {
-					return getRemoteServerVersion(versionJsonFilePath);
-				} catch (IOException e) {
-					Log.e(TAG,e.getMessage());
-					stop  = true;
-					callbackContextInClass.error(e.getMessage());
-					callbackContextInClass.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION));
-				}
+//				Log.v(TAG, "Ready to read the contents of the remote file(version.json)...");
+//				Log.v(TAG, "Remote file address:"+versionJsonFilePath);
+//				try {
+//					return getRemoteServerVersion(versionJsonFilePath);
+//				} catch (IOException e) {
+//					Log.e(TAG,e.getMessage());
+//					stop  = true;
+//					callbackContextInClass.error(e.getMessage());
+//					callbackContextInClass.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION));
+//				}
 				return "";
 			}
 
@@ -184,21 +184,22 @@ public class UpdateAppPlugin extends CordovaPlugin {
 					return;
 				}
 			try {
-				if ("".equals(result)) {
-					Log.e(TAG, "version.json file is null");
-					throw new Exception("version.json file is null");
-				}
+//				if ("".equals(result)) {
+//					Log.e(TAG, "version.json file is null");
+//					throw new Exception("version.json file is null");
+//				}
+				result = versionJsonFilePath;
 				if (result != "") {
 					AutoUpdate autoUpdate = gson.fromJson(result, AutoUpdate.class);
-					newAPKName = autoUpdate.getApkName();
+					newAPKName = autoUpdate.getAPKNAME();
 					Log.v(TAG, "server newAPKName:" + newAPKName);
-					newVersionName = autoUpdate.getVerName();
+					newVersionName = autoUpdate.getVERNAME();
 					Log.v(TAG, "server newVersionName:" + newVersionName);
-					newVersionCode = autoUpdate.getVerCode();
+					newVersionCode = autoUpdate.getVERCODE();
 					Log.v(TAG, "server newVersionCode:" + newVersionCode);
-					newAPKDownLoadPath = autoUpdate.getDownLoadPath();
+					newAPKDownLoadPath = autoUpdate.getDOWNLOADPATH();
 					Log.v(TAG, "server newAPKDownLoadPath:" + newAPKDownLoadPath);
-					newAPKUpdateLogInfo = autoUpdate.getLog();
+					newAPKUpdateLogInfo = autoUpdate.getLOGS();
 					Log.v(TAG, "server newAPKUpdateLogInfo:" + newAPKUpdateLogInfo);
 				}
 				Log.v(TAG, "wait for get native version");

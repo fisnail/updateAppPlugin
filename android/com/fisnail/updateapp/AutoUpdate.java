@@ -11,69 +11,65 @@ public class AutoUpdate {
 	/**
 	 * NEW_APK 名称
 	 */
-    private String apkName;
+    private String APKNAME;
     
     /**
      * NEW_APK 版本名称
      */
-    private String verName;
+    private String VERNAME;
     
     /**
      * NEW_APK 版本号
      */
-    private Integer verCode;
+    private Integer VERCODE;
     
     /**
      * 本次更新优化内容简介
      */
-    private String log;
+    private String LOGS;
     
     /**
      * NEW_APK 下载路径
      */
-    private String downLoadPath;
+    private String DOWNLOADPATH;
 
-	public String getApkName() {
-		return apkName;
+	public String getAPKNAME() {
+		return APKNAME;
 	}
 
-	public void setApkName(String apkName) {
-		this.apkName = apkName;
+	public void setAPKNAME(String APKNAME) {
+		this.APKNAME = APKNAME;
 	}
 
-	public String getVerName() {
-		return verName;
+	public String getVERNAME() {
+		return VERNAME;
 	}
 
-	public void setVerName(String verName) {
-		this.verName = verName;
+	public void setVERNAME(String VERNAME) {
+		this.VERNAME = VERNAME;
 	}
 
-	public Integer getVerCode() {
-		return verCode;
+	public Integer getVERCODE() {
+		return VERCODE;
 	}
 
-	public void setVerCode(Integer verCode) {
-		this.verCode = verCode;
+	public void setVERCODE(Integer VERCODE) {
+		this.VERCODE = VERCODE;
 	}
 
-	public String getLog() {
-		return log;
+	public String getLOGS() {
+		return LOGS;
 	}
 
-	public void setLog(String log) {
-		this.log = log;
+	public void setLOGS(String LOGS) {
+		this.LOGS = LOGS;
 	}
 
-	public String getDownLoadPath() {
-		return downLoadPath;
+	public String getDOWNLOADPATH() {
+		return DOWNLOADPATH;
 	}
 
-	public void setDownLoadPath(String downLoadPath) {
-		this.downLoadPath = downLoadPath;
+	public void setDOWNLOADPATH(String DOWNLOADPATH) {
+		this.DOWNLOADPATH = DOWNLOADPATH;
 	}
-    
-    
-  
-    
 }
