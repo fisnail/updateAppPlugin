@@ -7,69 +7,69 @@ package com.fisnail.updateapp;
  *
  */
 public class AutoUpdate {
-	
+
 	/**
 	 * NEW_APK 名称
 	 */
-    private String APKNAME;
-    
-    /**
-     * NEW_APK 版本名称
-     */
-    private String VERNAME;
-    
-    /**
-     * NEW_APK 版本号
-     */
-    private Integer VERCODE;
-    
-    /**
-     * 本次更新优化内容简介
-     */
-    private String LOGS;
-    
-    /**
-     * NEW_APK 下载路径
-     */
-    private String DOWNLOADPATH;
+	private String apkName;
 
-	public String getAPKNAME() {
-		return APKNAME;
+	/**
+	 * NEW_APK 版本名称
+	 */
+	private String verName;
+
+	/**
+	 * NEW_APK 版本号
+	 */
+	private Integer verCode;
+
+	/**
+	 * 本次更新优化内容简介
+	 */
+	private String logs;
+
+	/**
+	 * NEW_APK 下载路径
+	 */
+	private String downLoadPath;
+
+	public String getApkName() {
+		return apkName;
 	}
 
-	public void setAPKNAME(String APKNAME) {
-		this.APKNAME = APKNAME;
+	public void setApkName(String apkName) {
+		this.apkName = apkName;
 	}
 
-	public String getVERNAME() {
-		return VERNAME;
+	public String getDownLoadPath() {
+		return downLoadPath;
 	}
 
-	public void setVERNAME(String VERNAME) {
-		this.VERNAME = VERNAME;
+	public void setDownLoadPath(String downLoadPath) {
+		this.downLoadPath = downLoadPath;
 	}
 
-	public Integer getVERCODE() {
-		return VERCODE;
+	public String getLogs() {
+		return logs;
 	}
 
-	public void setVERCODE(Integer VERCODE) {
-		this.VERCODE = VERCODE;
+	public void setLogs(String logs) {
+		this.logs = logs;
 	}
 
-	public String getLOGS() {
-		return LOGS;
+	public Integer getVerCode() {
+		return verCode;
 	}
 
-	public void setLOGS(String LOGS) {
-		this.LOGS = LOGS;
+	public void setVerCode(Integer verCode) {
+		this.verCode = verCode;
 	}
 
-	public String getDOWNLOADPATH() {
-		return DOWNLOADPATH;
+	public String getVerName() {
+		return verName;
 	}
 
-	public void setDOWNLOADPATH(String DOWNLOADPATH) {
-		this.DOWNLOADPATH = DOWNLOADPATH;
+	public void setVerName(String verName) {
+		this.verName = verName;
 	}
 }
