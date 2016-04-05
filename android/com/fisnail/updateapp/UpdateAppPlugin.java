@@ -191,15 +191,15 @@ public class UpdateAppPlugin extends CordovaPlugin {
 				result = versionJsonFilePath;
 				if (result != "") {
 					AutoUpdate autoUpdate = gson.fromJson(result, AutoUpdate.class);
-					newAPKName = autoUpdate.getAPKNAME();
+					newAPKName = autoUpdate.getApkName();
 					Log.v(TAG, "server newAPKName:" + newAPKName);
-					newVersionName = autoUpdate.getVERNAME();
+					newVersionName = autoUpdate.getVerName();
 					Log.v(TAG, "server newVersionName:" + newVersionName);
-					newVersionCode = autoUpdate.getVERCODE();
+					newVersionCode = autoUpdate.getVerCode();
 					Log.v(TAG, "server newVersionCode:" + newVersionCode);
-					newAPKDownLoadPath = autoUpdate.getDOWNLOADPATH();
+					newAPKDownLoadPath = autoUpdate.setDownLoadPath();
 					Log.v(TAG, "server newAPKDownLoadPath:" + newAPKDownLoadPath);
-					newAPKUpdateLogInfo = autoUpdate.getLOGS();
+					newAPKUpdateLogInfo = autoUpdate.getLogs();
 					Log.v(TAG, "server newAPKUpdateLogInfo:" + newAPKUpdateLogInfo);
 				}
 				Log.v(TAG, "wait for get native version");
