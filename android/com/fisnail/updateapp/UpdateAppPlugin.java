@@ -197,7 +197,7 @@ public class UpdateAppPlugin extends CordovaPlugin {
 					Log.v(TAG, "server newVersionName:" + newVersionName);
 					newVersionCode = autoUpdate.getVerCode();
 					Log.v(TAG, "server newVersionCode:" + newVersionCode);
-					newAPKDownLoadPath = autoUpdate.setDownLoadPath();
+					newAPKDownLoadPath = autoUpdate.getDownLoadPath();
 					Log.v(TAG, "server newAPKDownLoadPath:" + newAPKDownLoadPath);
 					newAPKUpdateLogInfo = autoUpdate.getLogs();
 					Log.v(TAG, "server newAPKUpdateLogInfo:" + newAPKUpdateLogInfo);
